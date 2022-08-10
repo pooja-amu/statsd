@@ -1,0 +1,13 @@
+[Unit]
+Description=network daemon to collect metrics
+Documentation=https://github.com/statsd/statsd/
+Wants=network.target
+
+[Service]
+User=root
+Type=simple
+ExecStart=/usr/bin/node /home/mi-engineering/statsd/stats.js /root/build/config.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
